@@ -4,24 +4,46 @@ nltk.download('stopwords')
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
+# Initialize stopwords and stemmer
 stop_words = set(stopwords.words('english'))
 ps = PorterStemmer()
 
+# Tokenization
 def tokenize(text):
+    if not text:
+        return []
     return nltk.word_tokenize(text)
 
+# Remove Stopwords
 def remove_stopwords(tokens):
     return [token for token in tokens if token.lower() not in stop_words]
 
+# Apply Stemming
 def apply_stemming(tokens):
     return [ps.stem(token) for token in tokens]
 
+# Full Preprocessing Function
+def preprocess_text(text):
+    tokens = tokenize(text)
+    tokens = remove_stopwords(tokens)
+    tokens = apply_stemming(tokens)
+    return tokens
+
+# Preprocess a List of Ingredients
+def preprocess_ingredients(ingredients_list):
+    processed = []
+    for ingredient in ingredients_list:
+        processed_tokens = preprocess_text(ingredient)
+        processed.append(" ".join(processed_tokens))
+    return " ".join(processed)
+
 # Test the functions
 if __name__ == "__main__":
-    sample_text = "This is a sample recipe with tomatoes and onions."
-    tokens = tokenize(sample_text)
-    tokens_no_stopwords = remove_stopwords(tokens)
-    stemmed_tokens = apply_stemming(tokens_no_stopwords)
-    print("Tokens:", tokens)
-    print("No Stopwords:", tokens_no_stopwords)
-    print("Stemmed Tokens:", stemmed_tokens)
+    sample_ingredients = ["baking powder", "eggs", "all-purpose flour", "raisins", "milk", "white sugar"]
+    print("Original Ingredients:", sample_ingredients)
+    
+    processed_text = preprocess_text("This is a sample recipe with tomatoes and onions.")
+    print("Processed Text:", processed_text)
+    
+    processed_ingredients = preprocess_ingredients(sample_ingredients)
+    print("Processed Ingredients:", processed_ingredients)
