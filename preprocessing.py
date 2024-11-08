@@ -12,11 +12,11 @@ ps = PorterStemmer()
 def tokenize(text):
     if not text:
         return []
-    return nltk.word_tokenize(text)
+    return nltk.word_tokenize(text.lower())
 
 # Remove Stopwords
 def remove_stopwords(tokens):
-    return [token for token in tokens if token.lower() not in stop_words]
+    return [token for token in tokens if token.isalpha() and token not in stop_words]
 
 # Apply Stemming
 def apply_stemming(tokens):
@@ -27,23 +27,23 @@ def preprocess_text(text):
     tokens = tokenize(text)
     tokens = remove_stopwords(tokens)
     tokens = apply_stemming(tokens)
-    return tokens
+    return " ".join(tokens)
 
 # Preprocess a List of Ingredients
 def preprocess_ingredients(ingredients_list):
     processed = []
     for ingredient in ingredients_list:
-        processed_tokens = preprocess_text(ingredient)
-        processed.append(" ".join(processed_tokens))
-    return " ".join(processed)
+        processed_text = preprocess_text(ingredient)
+        processed.append(processed_text)
+    return processed
 
 # Test the functions
 if __name__ == "__main__":
     sample_ingredients = ["baking powder", "eggs", "all-purpose flour", "raisins", "milk", "white sugar"]
     print("Original Ingredients:", sample_ingredients)
-    
+
     processed_text = preprocess_text("This is a sample recipe with tomatoes and onions.")
     print("Processed Text:", processed_text)
-    
+
     processed_ingredients = preprocess_ingredients(sample_ingredients)
     print("Processed Ingredients:", processed_ingredients)
