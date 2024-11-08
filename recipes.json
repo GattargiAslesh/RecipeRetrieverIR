@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Spaghetti Bolognese",
+      "ingredients": ["spaghetti", "tomato", "ground beef", "onion", "garlic"],
+      "instructions": "Cook pasta, prepare sauce, and mix together.",
+      "dietary_restrictions": ["non-vegetarian"],
+      "category": "dinner"
+    },
+    {
+      "name": "Vegan Tacos",
+      "ingredients": ["taco shells", "black beans", "avocado", "lettuce", "tomato"],
+      "instructions": "Assemble ingredients in taco shells.",
+      "dietary_restrictions": ["vegan"],
+      "category": "lunch"
+    }
+  ]
+  
