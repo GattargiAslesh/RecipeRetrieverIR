@@ -1,8 +1,3 @@
-﻿# RecipeRetrieverIR
-Here’s a comprehensive **README.md** template for your GitHub repository based on your project:
-
----
-
 # **Recipe Information Retrieval System**
 
 A robust and efficient Information Retrieval (IR) system tailored for recipe searches, integrating multiple datasets and advanced IR techniques to provide users with relevant recipes through a Telegram bot interface.
