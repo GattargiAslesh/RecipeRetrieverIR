@@ -12,7 +12,7 @@ async def recipe_search(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     await update.message.reply_text(response)
 
 def main():
-    app = Application.builder().token("7728954710:AAEOXvEgd4bC44jkZGCFNm0qlxHx4mH-Q_4").build()
+    app = Application.builder().token("<<YOUR TELEGRAM BOT TOKEN>>").build()
     app.add_handler(CommandHandler("recipe", recipe_search))
     app.run_polling()
 
