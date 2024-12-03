@@ -169,7 +169,8 @@ The Telegram bot allows real-time recipe retrieval via simple queries. Example c
 
 ## **Contributors**
 
-- **Aslesh Gattargi**: Lead Developer  
+- **Aslesh Gattargi**: Lead Developer, Data Preprocessing, Evaluation Metrics
+- **Jayanth Gowda**: Lead Developer, System Architecture, Telegram Bot Integration 
 
 ---
 
